@@ -6,19 +6,31 @@
 
 
 def main():
-    # this function uses a while loop
-    loop_counter = 0
+    # Finds that adds a total onto an integer
 
-    # input
-    positive_integer_as_string = input("Enter any positive integer: ")
-    print("")
-
-    # process & output
-    while loop_counter < positive_integer_as_string:
-        print("{0} time through loop.".format(loop_counter))
-        loop_counter = loop_counter + 1
+    user_input = input("Enter any positive integer:")
+    try:
+        integer = int(user_input)
+        if integer > 0:
+            text = "1"
+            total = 1
+            count = 1
+            counter = 1
+            while count < integer:
+                counter = counter + 1
+                total = total + counter
+                count = count + 1
+                text = text + " + " + str(counter)
+            print("\n{0} = {1}".format(text, total))
+        elif integer == 0:
+            print("\n0 = 0")
+        else:
+            print("\nError: {} is a negative integer.".format(integer))
+    except ValueError:
+        print("\nError: {} is not an integer.".format(user_input))
+    finally:
+        print("\nDone.")
 
 
 if __name__ == "__main__":
     main()
-    
